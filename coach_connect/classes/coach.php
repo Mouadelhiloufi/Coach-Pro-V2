@@ -1,6 +1,8 @@
 <?php
 
+
 require_once "../classes/sceance.php";
+require_once "reservation.php";
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
 
@@ -14,6 +16,9 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
 
 }
+
+$arr_reser_coach=Reservation::affichage_res_coach($_SESSION['id_coach']);
+
 
 
 
@@ -45,11 +50,11 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
                 <div class="flex items-center space-x-4">
                     <a href="#" class="text-indigo-600 px-3 py-2 rounded-md font-medium">Dashboard</a>
-                    <a href="profile_coach.html" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md font-medium">
+                    <!-- <a href="profile_coach.html" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md font-medium">
                         <i class="fas fa-user mr-1"></i> Profil
-                    </a>
+                    </a> -->
 
-                    <a href="sceances_cree.php" class="text-indigo-600 px-3 py-2 rounded-md font-medium">Sceances creé</a>
+                    <a href="sceances_cree.php" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md font-medium">Sceances creé</a>
                     <a href="sceances_cree.php" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md font-medium">
                         
                     </a>
@@ -66,7 +71,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="bg-white rounded-lg shadow-md p-6 mb-8">
             <h1 class="text-3xl font-bold text-gray-900 mb-2">
-                Dashboard Coach - <span class="text-indigo-600">Ahmed</span>
+                Dashboard Coach - <span class="text-indigo-600"><?php echo $_SESSION['user_prenom']?></span>
             </h1>
             <p class="text-gray-600">
                 Gérez vos réservations, disponibilités et profil professionnel
@@ -94,8 +99,10 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         </div>
 
         <!-- Client Card Example -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <?php foreach($arr_reser_coach as $reservation): ?>
+                <?php if($reservation['statut']=='Reserver'):?>
             <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
                 <div class="relative h-48 bg-gradient-to-br from-green-50 to-emerald-100 flex items-center justify-center">
                     <i class="fas fa-user-circle text-gray-400 text-7xl"></i>
@@ -103,26 +110,21 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-gray-900">
-                        Youssef <span class="text-emerald-600">Benali</span>
+                        <?=$reservation['nom']?> <span class="text-emerald-600"><?=$reservation['prenom']?></span>
                     </h3>
 
                     <div class="space-y-3 mt-4">
-                        <p><strong>Email:</strong> youssef@gmail.com</p>
-                        <p><strong>Téléphone:</strong> 0600000000</p>
-                        <p><strong>Date:</strong> 18/12/2024</p>
+                        <p><strong>Email:</strong> <?=$reservation['email']?></p>
+                        <p><strong>Téléphone:</strong> <?=$reservation['telephone']?></p>
+                        <p><strong>Date:</strong> <?=$reservation['date']?></p>
+                        <p><strong>Statut:</strong> <?=$reservation['statut']?></p>
                     </div>
 
-                    <div class="flex gap-4 mt-6">
-                        <button class="w-full bg-emerald-600 text-white py-2 rounded-lg">
-                            Confirmer
-                        </button>
-                        <button class="w-full bg-red-500 text-white py-2 rounded-lg">
-                            Annuler
-                        </button>
-                    </div>
+                   
                 </div>
             </div>
-
+                    <?php endif;?>
+                    <?php endforeach;?>
         </div>
 
         <!-- Disponibilités -->

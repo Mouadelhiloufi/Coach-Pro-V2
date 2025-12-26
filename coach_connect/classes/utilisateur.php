@@ -201,11 +201,49 @@ require_once "../config/database.php";
         if($sql->rowCount()==1){
             $user=$sql->fetch(PDO::FETCH_ASSOC);
             if(password_verify($pwd,$user['password'])){
+
+
                 $_SESSION['user_id']=$user['id'];
                 $_SESSION['user_role']=$user['role'];
                 $_SESSION['user_prenom']=$user['prenom'];
 
-                $sql_pre="SELECT * from coach where user_id = ?";
+                
+
+
+                
+
+
+
+
+
+
+                if($user['role']=='client'){
+
+
+
+                    $sql_pre="SELECT * from client where user_id = ?";
+                $sql_C=$conn->prepare($sql_pre);
+                $sql_C->execute([
+                    $_SESSION['user_id']
+                ]);
+
+                
+                $client=$sql_C->fetch(PDO::FETCH_ASSOC);
+
+                $_SESSION['id_client']=$client['id'];
+
+
+
+                    header("location: ../classes/sportif.php");
+                    exit();
+
+
+                    
+                }else if($user['role']=='coach'){
+
+
+
+                    $sql_pre="SELECT * from coach where user_id = ?";
                 $sql_C=$conn->prepare($sql_pre);
                 $sql_C->execute([
                     $_SESSION['user_id']
@@ -217,14 +255,6 @@ require_once "../config/database.php";
                 $_SESSION['id_coach']=$coach['id'];
 
 
-
-
-
-
-                if($user['role']=='client'){
-                    header("location: ../classes/sportif.php");
-                    exit();
-                }else if($user['role']=='coach'){
                     header("location: ../classes/coach.php");
                     exit();
                 }

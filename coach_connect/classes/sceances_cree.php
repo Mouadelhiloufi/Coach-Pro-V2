@@ -49,9 +49,37 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     <title>Séances réservées</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 p-6">
+<body class="bg-gray-100 ">
 
-<h1 class="text-3xl font-bold text-center mb-10">Sceances creé</h1>
+
+<nav class="bg-white shadow-lg mb-[30px]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center">
+                        <i class="fas fa-dumbbell text-indigo-600 text-2xl mr-2"></i>
+                        <span class="text-2xl font-bold text-indigo-600">Sceances creé</span>
+                    </a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <a href="coach.php" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md font-medium">Dashboard</a>
+                    <!-- <a href="profile_coach.html" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md font-medium">
+                        <i class="fas fa-user mr-1"></i> Profil
+                    </a> -->
+
+                    <a href="sceances_cree.php" class="text-indigo-600 px-3 py-2 rounded-md font-medium">Sceances creé</a>
+                    <a href="sceances_cree.php" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md font-medium">
+                        
+                    </a>
+
+                    <a href="logout.php" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition font-medium">
+                        <i class="fas fa-sign-out-alt mr-1"></i> Déconnexion
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
@@ -131,7 +159,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 <select name="statut"
                         class="w-full border rounded-lg px-3 py-2">
                     <option value="">-- choisir --</option>
-                    <option value="reservee">Réservée</option>
                     <option value="annulee">Annulée</option>
                     <option value="disponible">disponible</option>
                 </select>

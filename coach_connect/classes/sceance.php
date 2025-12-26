@@ -89,6 +89,26 @@ require_once "../config/database.php";
            }
 
 
+           static function affichage_client(){
+
+            $db=new DataBase();
+            $conn=$db->connexion();
+
+            $sql_prepare="SELECT U.nom,U.prenom,U.email,U.telephone,C.id as id_coach,C.image_coach,C.biographie,C.experience,S.id as id_seance,S.date,S.heure,S.duree,S.statut 
+            from users U inner join coach C on U.id=C.user_id
+            inner join sceance S on S.id_coach = C.id";
+
+            $sql=$conn->prepare($sql_prepare);
+            $sql->execute();
+            
+            $result=$sql->fetchAll(PDO::FETCH_ASSOC);
+
+            return $result;
+
+
+           }
+
+
        
 
 

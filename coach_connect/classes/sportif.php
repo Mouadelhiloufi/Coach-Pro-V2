@@ -1,5 +1,12 @@
 <?php
 session_start();
+require_once "../classes/reservation.php";
+$reservation_arr=Reservation::affichage_reservation($_SESSION['id_client']);
+
+
+
+
+
 ?>
 
 
@@ -25,7 +32,7 @@ session_start();
                     </a>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <a href="athlete_reservation.html" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md font-medium">
+                    <a href="sportif_sceances.php" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md font-medium">
                         Coachs
                     </a>
                     <a href="#" class="text-indigo-600 px-3 py-2 rounded-md font-medium">
@@ -78,40 +85,27 @@ session_start();
             <div class="space-y-4">
 
                 <!-- Reservation card -->
+                 <?php foreach($reservation_arr as $reservation):?>
                 <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
                     <h3 class="text-lg font-semibold text-gray-900">
-                        Coach Ahmed Benali
+                        <?=$reservation['nom']." ".$reservation['prenom']?>
                     </h3>
                     <p class="text-sm text-gray-600 mt-1">
                         <i class="fas fa-calendar text-indigo-600 mr-2"></i>
-                        15/01/2025
+                         <?=$reservation['date']?>
                     </p>
                     <p class="text-sm text-gray-600 mt-1">
                         <i class="fas fa-clock text-indigo-600 mr-2"></i>
-                        10:00 - 11:00
+                         <?=$reservation['heure']?>
                     </p>
                     <span class="inline-block mt-3 px-3 py-1 bg-orange-200 text-orange-900 text-xs font-medium rounded-full">
-                        En attente
+                         <?=$reservation['statut']?>
                     </span>
                 </div>
+                <?php endforeach;?>
 
-                <!-- Reservation card -->
-                <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
-                    <h3 class="text-lg font-semibold text-gray-900">
-                        Coach Sarah El Amrani
-                    </h3>
-                    <p class="text-sm text-gray-600 mt-1">
-                        <i class="fas fa-calendar text-indigo-600 mr-2"></i>
-                        20/01/2025
-                    </p>
-                    <p class="text-sm text-gray-600 mt-1">
-                        <i class="fas fa-clock text-indigo-600 mr-2"></i>
-                        16:00 - 17:00
-                    </p>
-                    <span class="inline-block mt-3 px-3 py-1 bg-green-200 text-green-900 text-xs font-medium rounded-full">
-                        Confirmée
-                    </span>
-                </div>
+              
+                
 
             </div>
         </div>

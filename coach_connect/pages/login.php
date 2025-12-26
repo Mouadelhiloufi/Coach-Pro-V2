@@ -51,8 +51,8 @@ Login::login($email,$pwd);
                     </a>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <a href="../index.php" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md font-medium">Accueil</a>
-                    <a href="signUp.php" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md font-medium">Inscription</a>
+                    <a href="../public/index.php" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md font-medium">Accueil</a>
+                    <a href="../pages/register.php" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md font-medium">Inscription</a>
                 </div>
             </div>
         </div>
