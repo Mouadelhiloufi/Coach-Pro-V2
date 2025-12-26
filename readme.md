@@ -51,22 +51,22 @@ Cette première version (MVP) a pour objectif de valider le concept avant une fu
 COACH_PRO/
 │
 ├── pages/
-│ ├── athlete_page.php # Tableau de bord sportif
-│ ├── athlete_reservation.php # Réservations du sportif
-│ ├── coach_page.php # Tableau de bord coach
-│ ├── profile_coach.php # Profil du coach
-│ ├── login.php # Connexion
-│ ├── logout.php # Déconnexion
-│ └── signUp.php # Inscription
+│   ├── athlete_page.php          
+│   ├── athlete_reservation.php   
+│   ├── coach_page.php             
+│   ├── profile_coach.php         
+│   ├── login.php
+│   ├── logout.php                
+│   └── signUp.php               
 │
 ├── sources/
-│ ├── components/ # Composants réutilisables (header, footer…)
-│ ├── db/
-│ │ └── db.php # Connexion PDO à la base de données
-│ └── outils/ # Fonctions utilitaires
+│   ├── components/               
+│   ├── db/
+│   │   └── db.php                
+│   └── outils/                   
 │
-├── index.php # Page d’entrée principale
-├── readme.md # Documentation du projet
+├── index.php                    
+├── readme.md                     
 
 
 
