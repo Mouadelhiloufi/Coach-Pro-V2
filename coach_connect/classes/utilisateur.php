@@ -234,11 +234,11 @@ require_once "../config/database.php";
 
 
 
-                    header("location: ../classes/sportif.php");
+                    header("location: ../pages/sportif.php");
                     exit();
 
 
-                    
+
                 }else if($user['role']=='coach'){
 
 
@@ -255,7 +255,7 @@ require_once "../config/database.php";
                 $_SESSION['id_coach']=$coach['id'];
 
 
-                    header("location: ../classes/coach.php");
+                    header("location: ../pages/coach.php");
                     exit();
                 }
             }

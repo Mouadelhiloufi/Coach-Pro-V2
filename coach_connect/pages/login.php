@@ -5,10 +5,10 @@ require_once "../classes/utilisateur.php";
 
 if (isset($_SESSION["user_id"])) {
     if ($_SESSION["user_role"] === "client") {
-        header("Location: ../classes/sportif.php");
+        header("Location: ../pages/sportif.php");
         exit();
     } elseif ($_SESSION["user_role"] === "coach") {
-        header("Location: ../classes/coach.php");
+        header("Location: ../pages/coach.php");
         exit();
     }
 }

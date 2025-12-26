@@ -1,6 +1,6 @@
 <?php
 
-require_once "sceance.php";
+require_once "../classes/sceance.php";
 
 $sceances=Sceance::affichage();
 
@@ -73,7 +73,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                         
                     </a>
 
-                    <a href="logout.php" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition font-medium">
+                    <a href="../classes/logout.php" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition font-medium">
                         <i class="fas fa-sign-out-alt mr-1"></i> Déconnexion
                     </a>
                 </div>

@@ -18,7 +18,7 @@ require_once __DIR__ . '/../classes/utilisateur.php';
             $client=new Client($email,$password_hashed,$nom,$prenom,$phone,$role,$level);
             $register=$client->registerClient();
             if($register){
-                header("location: login.php");
+                header("location: ../pages/login.php");
                 exit();   
             }
             
@@ -46,7 +46,7 @@ require_once __DIR__ . '/../classes/utilisateur.php';
             $coach=new Coach($email,$password_hashed,$nom,$prenom,$phone,$role,$profil_image,$biography,$experience);
             $register_coach=$coach->registerCoach();
             if($register_coach){
-                header("location: login.php");
+                header("location: ../pages/login.php");
                 exit();
             }
             
@@ -111,7 +111,7 @@ require_once __DIR__ . '/../classes/utilisateur.php';
                 
 
                 <div class="mt-6">
-                    <a href="../index.php" class="text-sm text-gray-600 hover:text-indigo-600">
+                    <a href="../public/index.php" class="text-sm text-gray-600 hover:text-indigo-600">
                         <i class="fas fa-arrow-left mr-1"></i> Retour à l'accueil
                     </a>
                 </div>

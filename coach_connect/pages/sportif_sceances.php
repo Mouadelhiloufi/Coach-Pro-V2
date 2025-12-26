@@ -55,7 +55,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
                     <a href="sportif.php" class=" text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md font-medium">
                         Mon Espace
                     </a>
-                    <a href="logout.php" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition font-medium">
+                    <a href="../classes/logout.php" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition font-medium">
                         <i class="fas fa-sign-out-alt mr-1"></i> Déconnexion
                     </a>
                 </div>

@@ -38,7 +38,7 @@ $reservation_arr=Reservation::affichage_reservation($_SESSION['id_client']);
                     <a href="#" class="text-indigo-600 px-3 py-2 rounded-md font-medium">
                         Mon Espace
                     </a>
-                    <a href="logout.php" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition font-medium">
+                    <a href="../classes/logout.php" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition font-medium">
                         <i class="fas fa-sign-out-alt mr-1"></i> Déconnexion
                     </a>
                 </div>
